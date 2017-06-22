@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { ToDoContainer } from './app/typescript/todoContainer.module';
+import { ToDoContainer } from './app/modules/todoContainer.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {

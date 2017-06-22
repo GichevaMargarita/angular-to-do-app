@@ -1,9 +1,6 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
-export class ToDoItem {
-  name: string;
-  isDone: boolean;
-}
+import {ToDoItem} from '../ts/ToDoItem';
 
 const TODOITEMS: ToDoItem[] = [
   {name: 'Item 1', isDone: false},
@@ -17,15 +14,15 @@ const TODOITEMS: ToDoItem[] = [
 ];
 
 @Component({
-  selector: 'app-todo-container',
-  templateUrl: '../templates/app.component.html',
-  styleUrls: ['../css/app.component.css']
+  selector: 'todo-container',
+  templateUrl: '../templates/toDoContainer.component.html',
+  styleUrls: ['../css/toDoContainer.component.css']
 })
 
 export class ToDoContainerComponent {
   todoHeader = 'Shopping List';
   todoItemsList = TODOITEMS ;
-  // todoSettings showCompleted
+  // notodoSettings showCompleted
 
   toggleItemState(todoItem: ToDoItem): void {
     const currentValue = todoItem.isDone;

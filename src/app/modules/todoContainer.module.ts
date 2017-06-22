@@ -2,11 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { ToDoContainerComponent } from './todoContainer.component';
+import { ToDoContainerComponent } from '../componets/todoContainer.component';
+import { ToDoItemComponent } from '../componets/todoItem.component';
 
 @NgModule({
   declarations: [
-    ToDoContainerComponent
+    ToDoContainerComponent,
+    ToDoItemComponent
   ],
   imports: [
     BrowserModule,
