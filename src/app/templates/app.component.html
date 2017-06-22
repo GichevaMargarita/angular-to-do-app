@@ -1,0 +1,33 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="todo-container">
+  <div class="todo-header">
+    <input [(ngModel)]="todoHeader" type="text" placeholder="Note title" value="{{todoHeader}}"/>
+    <!--<div>{{todoHeader}}</div>-->
+  </div>
+
+  <div class="todo-list">
+    <div class="active-items" *ngFor="let todoItem of todoItemsList">
+    <!--[class.selected]="todoItem.isDone === false">-->
+      <div class="todo-item" *ngIf="!todoItem.isDone">
+        <label (click)="toggleItemState(todoItem)">
+          <input type="checkbox" [checked]="todoItem.isDone"/>
+          {{todoItem.name}}
+        </label>
+      </div>
+    </div>
+    <div class="todo-item-input">
+      <input type="text" placeholder="What needs to be done?"/>
+    </div>
+    <div class="completed-items" *ngFor="let todoItem of todoItemsList">
+      <div class="todo-item" *ngIf="todoItem.isDone">
+        <label (click)="toggleItemState(todoItem)">
+          <input type="checkbox" [checked]="todoItem.isDone"/>
+          {{todoItem.name}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
