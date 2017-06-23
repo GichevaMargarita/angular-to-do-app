@@ -1,4 +1,3 @@
-<!--The whole content below can be removed with the new code.-->
 <div class="todo-container">
   <div class="todo-header">
     <input [(ngModel)]="todoHeader" type="text" placeholder="Note title" value="{{todoHeader}}"/>
@@ -6,13 +5,13 @@
 
   <div class="todo-list">
     <div class="active-items" *ngFor="let todoItem of todoItemsList">
-      <todo-item *ngIf="todoItem.isDone" [todoItem]="toDoItem" (click)="toggleItemState(todoItem)"></todo-item>
+      <todo-item *ngIf="!todoItem.isDone" [todoItem]="todoItem" (click)="toggleItemState(todoItem)"></todo-item>
     </div>
     <div class="todo-item-input">
       <input type="text" placeholder="What needs to be done?"/>
     </div>
     <div class="completed-items" *ngFor="let todoItem of todoItemsList">
-      <todo-item *ngIf="!todoItem.isDone" [todoItem]="toDoItem" (click)="toggleItemState(todoItem)"></todo-item>
+      <todo-item *ngIf="todoItem.isDone" [todoItem]="todoItem" (click)="toggleItemState(todoItem)"></todo-item>
     </div>
   </div>
 </div>

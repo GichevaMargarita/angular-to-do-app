@@ -15,7 +15,7 @@ import { ToDoItemComponent } from '../componets/todoItem.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [ToDoContainerComponent]
+  bootstrap: [ ToDoContainerComponent ]
 })
 
 export class ToDoContainer { }
