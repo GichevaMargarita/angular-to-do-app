@@ -12,16 +12,12 @@ import { ToDoItemService } from '../services/todoItem.service';
 
 export class ToDoContainerComponent implements OnInit {
   todoHeader = 'Shopping List';
-  todoItemsList: ToDoItem[] ;
+  todoItemsList: ToDoItem[] = [];
 
   constructor(private toDoItemService: ToDoItemService) { }
 
-  getToDoItems(): void {
-    this.toDoItemService.getToDoItems().then(todoItemsList => this.todoItemsList = todoItemsList);
-  }
-
   ngOnInit(): void {
-    this.getToDoItems();
+    this.toDoItemService.getToDoItems().then(todoItemsList => this.todoItemsList = todoItemsList);
   }
   // toggleItemState(todoItem: ToDoItem): void {
   //   const currentValue = todoItem.isDone;

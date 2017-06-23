@@ -1,9 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { ToDoContainerComponent } from '../componets/todoContainer.component';
-import { ToDoItemComponent } from '../componets/todoItem.component';
+import {ToDoContainerComponent} from '../componets/todoContainer.component';
+import {ToDoItemComponent} from '../componets/todoItem.component';
+import {ToDoItemService} from '../services/todoItem.service';
+
+
+import {AppRoutingModule} from './appRouting.module';
 
 @NgModule({
   declarations: [
@@ -12,10 +16,12 @@ import { ToDoItemComponent } from '../componets/todoItem.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [ ToDoContainerComponent ]
+  providers: [ToDoItemService],
+  bootstrap: [ToDoContainerComponent]
 })
 
-export class ToDoContainer { }
+export class ToDoContainer {
+}

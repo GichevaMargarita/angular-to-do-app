@@ -1,8 +1,12 @@
+<nav>
+  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a routerLink="/todos" routerLinkActive="active">ToDos</a>
+</nav>
+
 <div class="todo-container">
   <div class="todo-header">
     <input [(ngModel)]="todoHeader" type="text" placeholder="Note title" value="{{todoHeader}}"/>
   </div>
-
   <div class="todo-list">
     <div class="active-items" *ngFor="let todoItem of todoItemsList">
       <todo-item *ngIf="!todoItem.isDone" [todoItem]="todoItem"></todo-item>
