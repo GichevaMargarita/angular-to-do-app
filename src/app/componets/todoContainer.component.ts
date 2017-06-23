@@ -1,31 +1,30 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {ToDoItem} from '../ts/ToDoItem';
-
-const TODOITEMS: ToDoItem[] = [
-  {name: 'Item 1', isDone: false},
-  {name: 'Item 2', isDone: false},
-  {name: 'Item 3', isDone: false},
-  {name: 'Item 4', isDone: false},
-  {name: 'Item 5', isDone: true},
-  {name: 'Item 6', isDone: true},
-  {name: 'Item 7', isDone: true},
-  {name: 'Item 8', isDone: true}
-];
+import { ToDoItem } from '../ts/ToDoItem';
+import { ToDoItemService } from '../services/todoItem.service';
 
 @Component({
   selector: 'todo-container',
   templateUrl: '../templates/toDoContainer.component.html',
-  styleUrls: ['../css/toDoContainer.component.css']
+  styleUrls: ['../css/toDoContainer.component.css'],
+  providers: [ToDoItemService]
 })
 
-export class ToDoContainerComponent {
+export class ToDoContainerComponent implements OnInit {
   todoHeader = 'Shopping List';
-  todoItemsList = TODOITEMS ;
-  // notodoSettings showCompleted
+  todoItemsList: ToDoItem[] ;
 
-  toggleItemState(todoItem: ToDoItem): void {
-    const currentValue = todoItem.isDone;
-    todoItem.isDone = !currentValue;
+  constructor(private toDoItemService: ToDoItemService) { }
+
+  getToDoItems(): void {
+    this.toDoItemService.getToDoItems().then(todoItemsList => this.todoItemsList = todoItemsList);
   }
+
+  ngOnInit(): void {
+    this.getToDoItems();
+  }
+  // toggleItemState(todoItem: ToDoItem): void {
+  //   const currentValue = todoItem.isDone;
+  //   todoItem.isDone = !currentValue;
+  // }
 }
